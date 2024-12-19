@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фитнес-клуб Пирамида</title>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <div class="header">
+	<div class="logotype-container">
+	<a href="index.cshtml"><img src="logo.png" alt="logo" class="logotype"></a>
+	<div class="logo-name">Pyramid</div>
+	</div>
+	<div class="login">
+            <div class="input-group">
+                <label for="username">Логин:</label>
+                <input type="text" id="username">
+            </div>
+            <div class="input-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password">
+            </div>
+	    <div class="LogReg-container">
+	    <div class="button-class">
+            <a href="#"><button>Войти</button></a>
+	    </div>
+		
+	    <a href="регистрация.cshtml">Регистрация</a>
+	    </div>
+        </div>
+    </div>
+
+    <div class="menu">
+	<a href="Акции.html" class="link-of-menu">Акции</a>
+        <a href="Услуги.cshtml" class="link-of-menu">Услуги</a>
+        <a href="Расписание.cshtml" class="link-of-menu">Расписание</a>
+        <a href="Контакты.cshtml" class="link-of-menu">Контакты</a>
+    </div>
+    <div class="About">
+    <h1>PYRAMID FITNESS CLUB</h1>
+    <div class="advantages">
+    <div class="advs">
+    <p class="zagalovki"><b>Профессиональные тренеры</b></p>
+    <p style="color:white">Тренеры нашего клуба имеют большой,<br>профессиональный опыт в сфере фитнеса,<br>подберут для вас оптимальную программу<br>тренировок и программу питания.</p>
+    </div>
+    <div class="advs">
+    <p class="zagalovki"><b>Формат премиум-класса</b></p>
+    <p style="color:white">Территории клуба 3800 м²<br>Большой банный комплекс<br>Бассейн 25 метров<br>Кафе-бар</p>
+    </div>
+    <div class="advs">
+    <p class="zagalovki"><b>Удобное местоположение</b></p>
+    <p style="color:white">Мы находимся в шаговой доступности от станции<br>метро Академическая, закрытая территория, с<br> бесплатной парковкой для клиентов нашего клуба.</p>
+    </div>
+    </div>
+    </div>
+	 <div class="fixed-container">
+        <p>Есть вопросы? Задайти их:</p>
+	<input type="numb" id="Telephone" placeholder="Телефон">
+        <textarea id="text-input" placeholder="Сколько стоит разовое посещение?"></textarea>
+	<div class="button-container">
+        <button onclick="clearInput()">Отправить</button>
+	</div>
+	<script>
+        function clearInput() {
+            document.getElementById("text-input").value = "";
+	    document.getElementById("Telephone").value = ""; // Очистка поля ввода
+        }
+    </script>
+    </div>
+
+    <div class="container">
+
+        <div class="content">
+		<div id="panel-content">
+	    <div class="image-container-for-main">
+    		<img src="tr.jpg" alt="Пример изображения">
+    		<div class="overlay">
+        	<p>Тренажерный зал</p>
+		<ul>
+			<li>500кв.м.</li>
+			<li>Большая кардио-зона.<br>Тренажеры премиум класса с<br>мультифункциональными<br>дисплеями</li>
+			<li>Профессиональные тренажеры<br>премиум класса</li>
+			<li>Индивидуальные тренировки</li>
+		</ul>
+		<div class="cont-for-button">
+		<button onclick="prevPanel()"><b><</b></button>
+		<button onclick="nextPanel()"><b>></b></button>
+		</div>
+    	        </div>
+	    </div>
+	</div>
+		<script>
+let currentPanel = 0;
+
+const panelLayouts = [
+    `
+    		<div class="image-container-for-main">
+    		<img src="~/image/tr.jpg" alt="Пример изображения">
+    		<div class="overlay">
+        	<p>Тренажерный зал</p>
+		<ul>
+			<li>500кв.м.</li>
+			<li>Большая кардио-зона.<br>Тренажеры премиум класса с<br>мультифункциональными<br>дисплеями</li>
+			<li>Профессиональные тренажеры<br>премиум класса</li>
+			<li>Индивидуальные тренировки</li>
+		</ul>
+		<div class="cont-for-button">
+		<button onclick="prevPanel()"><b><</b></button>
+		<button onclick="nextPanel()"><b>></b></button>
+		</div>
+    	        </div>
+	    </div>
+    `,`
+    		<div class="image-container-for-main">
+    		<img src="~/image/bas.jpg" alt="Пример изображения">
+    		<div class="overlay">
+        	<p>Бассейн</p>
+		<ul>
+			<li>Гидромассаж</li>
+			<li>Водопады</li>
+			<li>Групповые и индивидуальные<br>занятия для детей и взрослых</li>
+		</ul>
+		<div class="cont-for-button">
+		<button onclick="prevPanel()"><b><</b></button>
+		<button onclick="nextPanel()"><b>></b></button>
+		</div>
+    	        </div>
+	    </div>
+    `,
+    `
+    		<div class="image-container-for-main">
+    		<img src="~/image/ban.jpg" alt="Пример изображения">
+    		<div class="overlay">
+        	<p>Баня</p>
+		<ul>
+			<li>Руская баня</li>
+			<li>Хамам</li>
+			<li>Сауны в раздевалках</li>
+			<li>Инфракрасные сауны в зоне<br>бассейна</li>
+		</ul>
+		<div class="cont-for-button">
+		<button onclick="prevPanel()"><b><</b></button>
+		<button onclick="nextPanel()"><b>></b></button>
+		</div>
+    	        </div>
+	    </div>
+    `,
+    `
+    		<div class="image-container-for-main">
+    		<img src="~/image/chi.jpg" alt="Пример изображения">
+    		<div class="overlay">
+        	<p>Детский клуб</p>
+		<ul>
+		</ul>
+		<div class="cont-for-button">
+		<button onclick="prevPanel()"><b><</b></button>
+		<button onclick="nextPanel()"><b>></b></button>
+		</div>
+    	        </div>
+	    </div>
+    `,
+    `
+    		<div class="image-container-for-main">
+    		<img src="~/image/gro.jpg" alt="Пример изображения">
+    		<div class="overlay">
+        	<p>Групповые занятия</p>
+		<div class="cont-for-button">
+		<button onclick="prevPanel()"><b><</b></button>
+		<button onclick="nextPanel()"><b>></b></button>
+		</div>
+    	        </div>
+	    </div>
+    `,
+    `
+    		<div class="image-container-for-main">
+    		<img src="~/image/ZALBOX.jpg" alt="Пример изображения">
+    		<div class="overlay">
+        	<p>Тренажерный зал</p>
+		<ul>
+			<li>Индивидуальные и групповые<br>занятия по боксу</li>
+			<li>Подготовка для<br>профессиональных спортсменов</li>
+			<li>Зона CROSSFIT и<br>функционального тренинга</li>
+		</ul>
+		<div class="cont-for-button">
+		<button onclick="prevPanel()"><b><</b></button>
+		<button onclick="nextPanel()"><b>></b></button>
+		</div>
+    	        </div>
+	    </div>
+    `
+];
+
+function updatePanel() {
+    const panelContent = document.getElementById("panel-content");
+    panelContent.innerHTML = panelLayouts[currentPanel];
+}
+
+function nextPanel() {
+    currentPanel = (currentPanel + 1) % panelLayouts.length; // Циклический переход вперед
+    updatePanel();
+}
+
+function prevPanel() {
+    currentPanel = (currentPanel - 1 + panelLayouts.length) % panelLayouts.length; // Циклический переход назад
+    updatePanel();
+}
+</script>
+	<div class="prob">
+	<img src="prob.jpg" alt="Пример изображения">
+	<div class="prob-text">
+	<h2>Запишись на<br> пробную тренировку</h2>
+	<p>Запишитесь на персональную пробную тренировку в<br> тренажёрном зале, в бассейне или по любому<br>направлению групповых программ</p>
+	<div class="prob-reg">
+            <div class="input-group">
+                <p>Имя:</p>
+                <input type="text" id="first-name">
+            </div>
+            <div class="input-group">
+                <p>Фамилия:</p>
+                <input type="password" id="second-name">
+            </div>
+	    <div class="Reg-container">
+	    <div class="button-class">
+            <button>Записаться</button>
+	    </div>
+	    </div>
+        </div>
+	</div>
+	</div>
+            
+        </div>
+
+    </div>
+	<div class="map">
+	<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A48d9bf5d24bf890ffcf9cf3c4140b8ebc75029bca953183f6926860f4ae2d804&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+	<div class="overlay">
+	<p>Адрес<br>
+	<span style="color:#ffffff;">Москва, ул. Дмитрия Ульянова, д.31</span><br><br>
+	Метро<br>
+	<span style="color:#ffffff;">Академическая</span><br><br>
+	Телефон<br>
+	<a href="#" style="color:#ffffff;">+7 (495) 116 70 52</a><br><br>
+	Email<br>
+	<a href="#" style="color:#ffffff;">info@piramida.club</a></p>
+	</div>
+	</div>
+	<footer>
+	<div class="Info">
+	<div class="Work-time">
+	<p class="Pbold">Время работы</p> <p>Будние дни<br>с 6:00 до 24:00<p> Выходные<br>с 8:00 до 24:00<p>
+	</div>
+	<div class="Company">
+	<p class="Pbold">О компании</p><p><a href="#">Политика конфиденциальности</a><br><a href="#">Условия оплаты</a></p><p><b>Мы в социальных сетях:</b><br><a href="https://taplink.cc/piramida_fitness">taplink.cc/piramida_fitness</a></p>
+	</div>
+	<div class="Telephone">
+	<p class="Pbold">Телефон</p><p><a href="#" class="Number">+7 (495) 126 35 93</a></p>
+	</div>
+	</div>
+	<div class="Cop">
+	<p><br><br><br><br><br><br><br>&copy; Все права защищены</p>
+	</div>
+    </footer>
+</body>
+</html>
